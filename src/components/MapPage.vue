@@ -19,7 +19,7 @@
       </section>
 
       <div v-if="parcelsMatchingFilters.numMatches > 0">
-        {{ parcelsMatchingFilters.numMatches }} guild parcels found
+        {{ parcelsMatchingFilters.numMatches }} parcels belonging to guild members found
       </div>
     </div>
     <CitaadelMap
@@ -131,7 +131,7 @@ export default {
       const result = Object.fromEntries(
         parcelsToDisplay.value.map(parcel => {
           // filter by district
-          let show = filterDistricts.includes(parcel.district)
+          let show = true; //filterDistricts.includes(parcel.district)
           if (show) {
             // and filter by owners
             show = ownersLowercase.includes(ownersByParcelId.value[parcel.id])
@@ -142,6 +142,9 @@ export default {
       )
       return { result, numMatches }
     })
+
+    console.log('parcelsMatchingFilters', parcelsMatchingFilters);
+
 
     const selectedParcelId = ref(null)
     const selectedParcel = computed(() => {
