@@ -148,7 +148,13 @@ export default {
       const parcelId = selectedParcelId.value
       if (!parcelId) { return null }
       const owner = ownersByParcelId.value[parcelId]
-      const discord = _.find(filterOwners, ['address', owner]).discord;
+
+      let discord = '';
+      guildOwners.map((o) => {
+        if (o.address.toLowerCase() == owner.toLowerCase()) {
+          discord = o.discord;
+        }
+      });
 
       return {
         parcel: parcelsById.value[parcelId],
