@@ -1,7 +1,8 @@
 <template>
   <PrereqParcels>
     <div>
-      <h1>The Citaadel</h1>
+      <h1>WAGMI Warriors Guild Map</h1>
+      <p>Guild Map Credits to <a href="https://www.aadventure.io/citaadel">eitri</a> (discord / <a href="https://twitter.com/eittri">twitter</a>). <a href="https://github.com/mistaya/guildmap">Source code</a>.</p>
 
       <div style="margin-bottom: 20px;">
         <DataFetcherParcelOwners />
