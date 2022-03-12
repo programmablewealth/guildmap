@@ -1,5 +1,12 @@
 [
-  { "address": "0xc4f1e3020e1b07b66afbbbee30f50383f46d7091", "discord": "jarrod"},
-  { "address": "0xffe7bceac39f5abcbe2588cbf0407d2213f11105", "discord": "bob"},
-  { "address": "0xd2f91edd7dd5388737552d18d99555313dcd78e0", "discord": "jim"}
+  { "address": "0x26cf02F892B04aF4Cf350539CE2C77FCF79Ec172", "discord": "jarrod | aavegotchistats.com#9686"},
+  { "address": "0xa1BbD8D39eD536DEa030A32F3F6C5916C845A800", "discord": "Mycaleum#8283"},
+  { "address": "0x2848b9f2D4FaEBaA4838c41071684c70688B455d", "discord": "MarvinP#4479"},
+  { "address": "0x4eDb4161D16c89b71Aec027930a943c3d4cf0777", "discord": "Nestor#0726"},
+  { "address": "0x0a9a893ed9e173b3298C8022E959eC6691673145", "discord": "Supreme Pablo#8822"},
+  { "address": "0x956F1CE3ff2ea59A8b41DF83Ce9F85ED59D73F92", "discord": "Quincy1971#6786"},
+  { "address": "0x6701DC817396c99E40E31F2724Ea966e2832492C", "discord": "Zerk"},
+  { "address": "0x43FF4C088df0A425d1a519D3030A1a3DFff05CfD", "discord": "PG#0811"},
+  { "address": "0xE1bCD0f5c6c855ee3452B38E16FeD0b7Cb0CC507", "discord": "Siim"},
+  { "address": "0x2d5f86cd294ca6c92189340eaeff41fc63dc66ef", "discord": "Slick#2526"}
 ]
