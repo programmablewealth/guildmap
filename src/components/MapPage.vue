@@ -13,6 +13,7 @@
           v-if="selectedParcel"
           :parcel="selectedParcel.parcel"
           :owner="selectedParcel.owner"
+          :discord="selectedParcel.discord"
           @close="selectedParcelId = null"
         />
       </section>
@@ -41,6 +42,7 @@ import PrereqParcels from './PrereqParcels.vue'
 import ParcelDetails from './ParcelDetails.vue'
 import CitaadelMap from './CitaadelMap.vue'
 import guildOwners from '@/data/guildOwners.json'
+import _ from 'lodash';
 
 const DEFAULT_MAP_COLORS = {
   light: {
@@ -120,7 +122,10 @@ export default {
     })
 
     const parcelsMatchingFilters = computed(() => {
-      const ownersLowercase = filterOwners.map(address => address.toLowerCase())
+      let ownersLowercase = [];
+      filterOwners.map((o) => {
+        ownersLowercase.push(o.address.toLowerCase())
+      });
 
       let numMatches = 0
       const result = Object.fromEntries(
@@ -143,9 +148,12 @@ export default {
       const parcelId = selectedParcelId.value
       if (!parcelId) { return null }
       const owner = ownersByParcelId.value[parcelId]
+      const discord = _.find(filterOwners, ['address', owner]).discord;
+
       return {
         parcel: parcelsById.value[parcelId],
-        owner
+        owner,
+        discord
       }
     })
 

@@ -1,5 +1,5 @@
 [
-  "0xc4f1e3020e1b07b66afbbbee30f50383f46d7091",
-  "0xffe7bceac39f5abcbe2588cbf0407d2213f11105",
-  "0xd2f91edd7dd5388737552d18d99555313dcd78e0"
+  { "address": "0xc4f1e3020e1b07b66afbbbee30f50383f46d7091", "discord": "jarrod"},
+  { "address": "0xffe7bceac39f5abcbe2588cbf0407d2213f11105", "discord": "bob"},
+  { "address": "0xd2f91edd7dd5388737552d18d99555313dcd78e0", "discord": "jim"}
 ]

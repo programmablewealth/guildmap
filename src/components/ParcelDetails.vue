@@ -21,6 +21,10 @@
     <div v-if="owner">
       Owner: {{ owner }}
     </div>
+
+    <div v-if="discord">
+      Discord: {{ discord }}
+    </div>
   </div>
 </template>
 
@@ -28,7 +32,8 @@
 export default {
   props: {
     parcel: { type: Object, required: true },
-    owner: { type: String, default: null }
+    owner: { type: String, default: null },
+    discord: { type: String, default: null }
   }
 }
 </script>
