@@ -3,6 +3,7 @@
     <div>
       <h1>WAGMI Warriors Guild Map</h1>
       <p>Guild Map Credits to <a href="https://www.aadventure.io/citaadel">eitri</a> (discord / <a href="https://twitter.com/eittri">twitter</a>). <a href="https://github.com/mistaya/guildmap">Source code</a>.</p>
+      <p>Note: the land shown on this map belongs to guild members, not the guild. Guild members are free to use the land they own as they wish. The current target districts for WAGMI Warriors Guild is D18, D19 and D10.</p>
 
       <div style="margin-bottom: 20px;">
         <DataFetcherParcelOwners />
