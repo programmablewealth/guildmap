@@ -4,7 +4,7 @@
       <h1>WAGMI Warriors Guild Map</h1>
       <p>Guild Map Credits to <a href="https://www.aadventure.io/citaadel">eitri</a> (discord / <a href="https://twitter.com/eittri">twitter</a>). <a href="https://github.com/mistaya/guildmap">Source code</a>.</p>
       <p>Note: the land shown on this map belongs to guild members, not the guild. Guild members are free to use the land they own as they wish. The current target districts for WAGMI Warriors Guild is D18, D19 and D10.</p>
-      <p>This map is filtered by WAGMI Warriors guild members land in D18, D19 and D10. View all land owned by WAGMI Warriors guild members <a href="/all">here</a>.</p>
+      <p>This map shows all land owned by WAGMI Warriors guild members. View land in targetted guild districts <a href="/">here</a>.</p>
 
       <div style="margin-bottom: 20px;">
         <DataFetcherParcelOwners />
@@ -133,7 +133,7 @@ export default {
       const result = Object.fromEntries(
         parcelsToDisplay.value.map(parcel => {
           // filter by district
-          let show = filterDistricts.includes(parcel.district)
+          let show = true
           if (show) {
             // and filter by owners
             show = ownersLowercase.includes(ownersByParcelId.value[parcel.id])

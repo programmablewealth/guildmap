@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import MapPage from '../components/MapPage.vue'
+import MapPageAll from '../components/MapPageAll.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -8,7 +9,14 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: MapPage
-    }/*,
+    },
+    {
+      path: '/all',
+      name: 'all',
+      component: MapPageAll
+    }
+
+    /*,
     {
       path: '/about',
       name: 'about',
