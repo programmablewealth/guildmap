@@ -18,12 +18,8 @@
     <br>Size: {{ parcel.sizeLabel }}
     <br>District: {{ parcel.district }}
 
-    <div v-if="owner">
-      Owner: {{ owner }}
-    </div>
-
     <div v-if="discord">
-      Discord: {{ discord }}
+      Owner: {{ discord }}
     </div>
   </div>
 </template>

@@ -4,7 +4,6 @@
       <h1>WAGMI Warriors Guild Map</h1>
       <p>Guild Map Credits to <a href="https://www.aadventure.io/citaadel">eitri</a> (discord / <a href="https://twitter.com/eittri">twitter</a>). <a href="https://github.com/mistaya/guildmap">Source code</a>.</p>
       <p>Note: the land shown on this map belongs to guild members, not the guild. Guild members are free to use the land they own as they wish. The current target districts for WAGMI Warriors Guild is D18, D19 and D10.</p>
-      <p>This map is filtered by WAGMI Warriors guild members land in D18, D19 and D10. View all land owned by WAGMI Warriors guild members <a href="/all">here</a>.</p>
 
       <div style="margin-bottom: 20px;">
         <DataFetcherParcelOwners />
@@ -22,6 +21,20 @@
 
       <div v-if="parcelsMatchingFilters.numMatches > 0">
         {{ parcelsMatchingFilters.numMatches }} parcels belonging to guild members found
+        <template v-if="onlySelectedDistricts">
+          in districts
+          {{ filterDistricts.join(', ') }}
+        </template>
+      </div>
+
+      <div>
+        <label>
+          <input
+            v-model="onlySelectedDistricts"
+            type="checkbox"
+          >
+          Only show guild districts
+        </label>
       </div>
     </div>
     <CitaadelMap
@@ -108,6 +121,7 @@ export default {
     const mapConfig = ref(getDefaultMapConfig())
     const filterOwners = guildOwners
     const filterDistricts = ['18', '19', '10']
+    const onlySelectedDistricts = ref(true)
 
     const { parcelsById, fetchStatus: parcelsFetchStatus } = useParcels()
 
@@ -133,7 +147,11 @@ export default {
       const result = Object.fromEntries(
         parcelsToDisplay.value.map(parcel => {
           // filter by district
-          let show = filterDistricts.includes(parcel.district)
+          let show = true
+          // filter by district?
+          if (onlySelectedDistricts.value) {
+            show = filterDistricts.includes(parcel.district)
+          }
           if (show) {
             // and filter by owners
             show = ownersLowercase.includes(ownersByParcelId.value[parcel.id])
@@ -180,6 +198,8 @@ export default {
     return {
       parcelsFetchStatus,
       mapConfig,
+      filterDistricts,
+      onlySelectedDistricts,
       parcelsToDisplay,
       parcelsMatchingFilters,
       parcelColors,
