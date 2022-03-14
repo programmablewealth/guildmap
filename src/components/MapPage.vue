@@ -17,7 +17,21 @@
       </section>
 
       <div v-if="parcelsMatchingFilters.numMatches > 0">
-        {{ parcelsMatchingFilters.numMatches }} guild parcels found
+        {{ parcelsMatchingFilters.numMatches }} parcels owned by guild members found
+        <template v-if="onlySelectedDistricts">
+          in districts
+          {{ filterDistricts.join(', ') }}
+        </template>
+      </div>
+
+      <div>
+        <label>
+          <input
+            v-model="onlySelectedDistricts"
+            type="checkbox"
+          >
+          Only show guild districts
+        </label>
       </div>
     </div>
     <CitaadelMap
@@ -103,6 +117,7 @@ export default {
     const mapConfig = ref(getDefaultMapConfig())
     const filterOwners = guildOwners
     const filterDistricts = ['18', '19', '10']
+    const onlySelectedDistricts = ref(true)
 
     const { parcelsById, fetchStatus: parcelsFetchStatus } = useParcels()
 
@@ -124,8 +139,11 @@ export default {
       let numMatches = 0
       const result = Object.fromEntries(
         parcelsToDisplay.value.map(parcel => {
-          // filter by district
-          let show = filterDistricts.includes(parcel.district)
+          let show = true
+          // filter by district?
+          if (onlySelectedDistricts.value) {
+            show = filterDistricts.includes(parcel.district)
+          }
           if (show) {
             // and filter by owners
             show = ownersLowercase.includes(ownersByParcelId.value[parcel.id])
@@ -163,6 +181,8 @@ export default {
     return {
       parcelsFetchStatus,
       mapConfig,
+      filterDistricts,
+      onlySelectedDistricts,
       parcelsToDisplay,
       parcelsMatchingFilters,
       parcelColors,
